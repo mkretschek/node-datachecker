@@ -58,8 +58,6 @@ function loadFormatDir(dir) {
 }
 
 
-
-
 /**
  * Simplifies the format objects joining custom types until all formats
  * use native javascript types, avoiding the overhead of doing the join on each
@@ -73,7 +71,6 @@ function simplifyFormats(formats) {
     simplified = {},
     type,
     format;
-
 
   /**
    * Simplifies a specific format definition, resolving custom types into native
@@ -116,11 +113,10 @@ function simplifyFormats(formats) {
 }
 
 
-
 /**
  * Loads all formats from the given path (or array of paths).
- * @param {(String|Array.<String>)} path Path or array of paths to files containing
- *  format definitions.
+ * @param {(String|Array.<String>)} path Path or array of paths to files
+ *  containing format definitions.
  * @return {Object} A simplified format object.
  */
 function loadFormats(path) {

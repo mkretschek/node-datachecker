@@ -20,15 +20,14 @@ function isNativeType(type) {
 
 /**
  * Makes a deep copy of the given object.
- * Note: this is a quick and non-optimal solution, but as this method is supposed
- * to be used only during app initialization, it's good enough for now.
+ * Note: this is a quick and non-optimal solution, but as this method is
+ * supposed to be used only during app initialization, it's good enough for now.
  * @param {*} obj Object to be copied.
  * @return {Object} Deep copy of the given object.
  */
 function deepCopy(obj) {
   return JSON.parse(JSON.stringify(obj));
 }
-
 
 
 /**
@@ -48,12 +47,13 @@ function _isPlainOldObject(val) {
  * source objects.
  *
  * Note that the target object WILL be changed. Note also that if a parameter is
- * repeated in the target and in one or more source objects, it will be overriden
- * and the one defined in the latest object passed to the function will prevail.
+ * repeated in the target and in one or more source objects, it will be
+ * overriden and the one defined in the latest object passed to the function
+ * will prevail.
  *
  * @param {Object} target The object to which the updates should be applied to.
  * @param {...Object} source Objects from which the parameters should be taken.
- * @return {Object} The target object.
+ * @return {Object} The target object (already extended/updated).
  */
 function deepExtend(target) {
   var
@@ -76,7 +76,8 @@ function deepExtend(target) {
         if (_isPlainOldObject(targetVal) && _isPlainOldObject(sourceVal)) {
           deepExtend(targetVal, sourceVal);
         } else {
-          target[key] = Array.isArray(sourceVal) || _isPlainOldObject(sourceVal) ?
+          target[key] = Array.isArray(sourceVal) ||
+              _isPlainOldObject(sourceVal) ?
             deepCopy(targetVal) :
             targetVal;
         }
