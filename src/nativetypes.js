@@ -1,3 +1,7 @@
+/**
+ * Defines the list native javascript types.
+ * @type Array
+ */
 module.exports = [
   'Array',
   'Boolean',
